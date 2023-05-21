@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  rsspls:
+    container_name: rsspls
+    # image: example.com/rsspls
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./rsspls/rsspls.toml:/etc/rsspls.toml:ro
+      - ./volumes/www/rsspls.wezm.net:/home/rsspls/feeds  # path is shared with the `nginx` container
