@@ -24,7 +24,8 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v4
         with:
-          context: ./docker
+          context: .
+          file: docker/Dockerfile
           push: true
           tags: "${{ github.actor }}/rsspls:latest"  # ${{ steps.meta.outputs.tags }}
           # labels: ${{ steps.meta.outputs.labels }}
